@@ -19,12 +19,11 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Adicionar(UsuarioDto pUsuario)
         {
-            _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, true));
+            _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true));
             return Ok(true);
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult PegarUsuario()
         {
             return Ok(_usuarioRep.GetUsuarios());

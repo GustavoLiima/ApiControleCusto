@@ -9,10 +9,17 @@ namespace Api.Controllers
     [Route("api/v1/token")]
     public class AuthController : Controller
     {
+        ConnectionContext connectionContext;
+
+        public AuthController(ConnectionContext connectionContext)
+        {
+            this.connectionContext = connectionContext;
+        }
+
         [HttpPost]
         public IActionResult Auth(TokenDto pAcesso)
         {
-            UsuarioRepository repUsuario = new UsuarioRepository();
+            UsuarioRepository repUsuario = new UsuarioRepository(connectionContext);
             UsuarioDto usuario = repUsuario.GetUsuario(pAcesso.user, pAcesso.password);
             if (usuario != null)
             {

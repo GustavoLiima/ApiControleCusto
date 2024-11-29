@@ -4,6 +4,7 @@ using Api.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Globalization;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,6 +46,7 @@ builder.Services.AddSwaggerGen(x =>
 
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddTransient<IServicoRepository, ServicoRepository>();
+builder.Services.AddDbContext<ConnectionContext>();
 
 var key = Encoding.ASCII.GetBytes(Key.Secret);
 

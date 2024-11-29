@@ -6,7 +6,12 @@ namespace Api.Repository
 {
     public class ServicoRepository : IServicoRepository
     {
-        private readonly ConnectionContext _Context = new ConnectionContext();
+        private readonly ConnectionContext _Context;
+
+        public ServicoRepository(ConnectionContext context)
+        {
+            _Context = context ?? throw new ArgumentNullException(nameof(context));
+        }
 
         public void AdicionarAtualizarServico(ServicoModel pServico)
         {

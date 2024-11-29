@@ -1,12 +1,20 @@
 ﻿using Api.Dto;
 using Api.Intefaces;
 using Api.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.Repository
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class UsuarioRepository : DbContext, IUsuarioRepository
     {
-        private readonly ConnectionContext _Context = new ConnectionContext();
+        private readonly ConnectionContext _Context;
+
+        // Injeta o ConnectionContext no repositório
+        public UsuarioRepository(ConnectionContext context)
+        {
+            _Context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
 
         public void AdicionarAtualizarUsuario(UsuarioModel pUsuario)
         {
@@ -19,12 +27,12 @@ namespace Api.Repository
             return _Context.tabUsuario.ToList();
         }
 
-        public UsuarioDto GetUsuario(string pUsuario, string pSenha)
+        public UsuarioDto GetUsuario(string pEmail, string pSenha)
         {
-            UsuarioModel retorno = _Context.tabUsuario.FirstOrDefault(u => u.usuario == pUsuario && u.senha == pSenha);
+            UsuarioModel retorno = _Context.tabUsuario.FirstOrDefault(u => u.email == pEmail && u.senha == pSenha);
             if (retorno == null)
             {
-                retorno = _Context.tabUsuario.FirstOrDefault(u => u.telefone == pUsuario && u.senha == pSenha);
+                retorno = _Context.tabUsuario.FirstOrDefault(u => u.telefone == pEmail && u.senha == pSenha);
             }
             if(retorno == null)
             {
@@ -34,14 +42,16 @@ namespace Api.Repository
             {
                 return new UsuarioDto()
                 {
-                    usuario = retorno.usuario,
                     senha = retorno.senha,
                     ativo = retorno.ativo,
                     cd_usuario = retorno.cd_usuario,
                     email = retorno.email,
                     nome = retorno.nome,
                     sobrenome = retorno.sobrenome,
-                    telefone = retorno.telefone
+                    telefone = retorno.telefone,
+                    numeroCnh = retorno.NumeroCNH,
+                    categoriaCnh = retorno.CategoriaCNH,
+                    vencimentoCnh = retorno.VencimentoCNH
                 };
             }
         }
