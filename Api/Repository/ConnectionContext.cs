@@ -8,6 +8,8 @@ namespace Api.Repository
         private IConfiguration _configuration;
         public DbSet<UsuarioModel> tabUsuario { get; set; }
         public DbSet<ServicoModel> tabServico { get; set; }
+        public DbSet<RecuperacaoSenhaModel> tabRecuperacaoSenha { get; set; }
+
 
         public ConnectionContext(IConfiguration configuration, DbContextOptions options) : base(options) 
         {

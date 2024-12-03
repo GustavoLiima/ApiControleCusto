@@ -18,13 +18,18 @@ namespace Api.Repository
 
         public void AdicionarAtualizarUsuario(UsuarioModel pUsuario)
         {
-            _Context.tabUsuario.Add(pUsuario);
+            _Context.tabUsuario.Update(pUsuario);
             _Context.SaveChanges();
         }
 
         public List<UsuarioModel> GetUsuarios()
         {
             return _Context.tabUsuario.ToList();
+        }
+
+        public UsuarioModel? GetUsuarioEmail(string pEmail)
+        {
+            return _Context.tabUsuario.FirstOrDefault(x => x.email == pEmail);
         }
 
         public UsuarioDto GetUsuario(string pEmail, string pSenha)
