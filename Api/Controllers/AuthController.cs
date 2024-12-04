@@ -1,4 +1,5 @@
 ﻿using Api.Dto;
+using Api.Model;
 using Api.Repository;
 using Api.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +25,11 @@ namespace Api.Controllers
             if (usuario != null)
             {
                 var token = TokenService.GenerateToken(usuario);
-                return Ok(token);
+                return Ok(new TokenReturn()
+                {
+                    Token = token,
+                    Usuario = usuario
+                });
             }
             else
             {

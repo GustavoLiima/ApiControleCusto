@@ -19,7 +19,7 @@ namespace Api.Model
         public string sobrenome { get; set; }
 
         [StringLength(255)]  // Tamanho máximo de 255 caracteres
-        public string telefone { get; set; }
+        public string? telefone { get; set; }
 
         [Required]
         [StringLength(255)]  // Tamanho máximo de 255 caracteres

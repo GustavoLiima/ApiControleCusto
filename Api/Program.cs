@@ -47,6 +47,7 @@ builder.Services.AddSwaggerGen(x =>
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddTransient<IServicoRepository, ServicoRepository>();
 builder.Services.AddTransient<IRecuperarSenha, RecuperacaoSenhaRepository>();
+builder.Services.AddTransient<IVeiculoRepository, VeiculoRepository>();
 builder.Services.AddDbContext<ConnectionContext>();
 
 var key = Encoding.ASCII.GetBytes(Key.Secret);
