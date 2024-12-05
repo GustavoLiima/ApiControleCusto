@@ -13,9 +13,15 @@ namespace Api.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<VeiculoModel> AdicionarVeiculo(VeiculoModel veiculo)
+        public async Task<VeiculoModel> AdicionarVeiculo(VeiculoModel veiculo, int IdUsuario)
         {
             await _context.tabVeiculos.AddAsync(veiculo);
+            await _context.SaveChangesAsync();
+            await _context.tabUsuarioVeiculos.AddAsync(new Model.TabRelacionamento.UsuarioVeiculo()
+            {
+                id_veiculo = veiculo.ID,
+                cd_usuario = IdUsuario
+            });
             await _context.SaveChangesAsync();
             return veiculo;
         }

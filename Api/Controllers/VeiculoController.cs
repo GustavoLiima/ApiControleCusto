@@ -1,5 +1,6 @@
 ﻿using Api.Intefaces;
 using Api.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -17,6 +18,7 @@ namespace Api.Controllers
 
         // Criar um novo veículo
         [HttpPost("criar")]
+        [Authorize]
         public async Task<IActionResult> CriarVeiculo([FromBody] VeiculoModel veiculo)
         {
             if (veiculo == null)
@@ -24,7 +26,10 @@ namespace Api.Controllers
                 return BadRequest("Dados do veículo são obrigatórios.");
             }
 
-            VeiculoModel objret = await _context.AdicionarVeiculo(veiculo);
+            var claims = User.Claims;
+            var id = int.Parse(claims.FirstOrDefault(c => c.Type == "usuarioID")?.Value);
+
+            VeiculoModel objret = await _context.AdicionarVeiculo(veiculo, id);
             return Ok(objret);
         }
 
