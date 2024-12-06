@@ -16,10 +16,11 @@ namespace Api.Repository
         }
 
 
-        public void AdicionarAtualizarUsuario(UsuarioModel pUsuario)
+        public UsuarioModel AdicionarAtualizarUsuario(UsuarioModel pUsuario)
         {
             _Context.tabUsuario.Update(pUsuario);
             _Context.SaveChanges();
+            return pUsuario;
         }
 
         public List<UsuarioModel> GetUsuarios()
