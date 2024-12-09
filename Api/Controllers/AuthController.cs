@@ -25,10 +25,12 @@ namespace Api.Controllers
             if (usuario != null)
             {
                 var token = TokenService.GenerateToken(usuario);
+                VeiculoRepository repVeiculo= new VeiculoRepository(connectionContext);
                 return Ok(new TokenReturn()
                 {
                     Token = token,
-                    Usuario = usuario
+                    Usuario = usuario,
+                    Veiculos = repVeiculo.GetVeiculosUsuario(usuario.cd_usuario).Result
                 });
             }
             else

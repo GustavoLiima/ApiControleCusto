@@ -54,5 +54,19 @@ namespace Api.Repository
             _context.tabVeiculos.Remove(veiculo);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<List<VeiculoModel>> GetVeiculosUsuario(int pIdUsuario)
+        {
+            
+                var veiculos = await _context.tabUsuarioVeiculos
+                    .Where(uv => uv.cd_usuario == pIdUsuario)
+                    .Join(_context.tabVeiculos,
+                        uv => uv.id,
+                        v => v.ID,
+                        (uv, v) => v)
+                    .ToListAsync();
+
+                return veiculos;
+        }
     }
 }

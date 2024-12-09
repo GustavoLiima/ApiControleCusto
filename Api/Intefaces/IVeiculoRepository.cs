@@ -6,6 +6,7 @@ namespace Api.Intefaces
     {
         Task<VeiculoModel> AdicionarVeiculo(VeiculoModel veiculo, int IdUsuario);
         Task<VeiculoModel?> GetVeiculo(int id);
+        Task<List<VeiculoModel>> GetVeiculosUsuario(int pIdUsuario);
         Task AtualizarVeiculo(VeiculoModel veiculo);
         Task ExcluirVeiculo(int id);
     }
