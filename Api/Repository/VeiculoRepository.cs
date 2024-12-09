@@ -57,11 +57,10 @@ namespace Api.Repository
 
         public async Task<List<VeiculoModel>> GetVeiculosUsuario(int pIdUsuario)
         {
-            
                 var veiculos = await _context.tabUsuarioVeiculos
                     .Where(uv => uv.cd_usuario == pIdUsuario)
                     .Join(_context.tabVeiculos,
-                        uv => uv.id,
+                        uv => uv.id_veiculo,
                         v => v.ID,
                         (uv, v) => v)
                     .ToListAsync();
