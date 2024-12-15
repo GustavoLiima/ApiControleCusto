@@ -1,5 +1,7 @@
-﻿using Api.Intefaces;
+﻿using Api.Helpers;
+using Api.Intefaces;
 using Api.Model;
+using Api.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
@@ -44,8 +46,16 @@ namespace Api.Controllers
             // Simula o envio do e-mail
             Console.WriteLine($"Código de recuperação enviado para {email}: {codigo}");
 
+            var emailService = new EmailService();
+            var emailEnviado = await emailService.SendEmailAsync(
+                               toEmail: email,
+                               subject: "Recuperação de senha COFAUTO",
+                               body: GerarCorpoEmail.GeneratePasswordRecoveryEmailBody(codigo));
+
             return Ok("Código enviado com sucesso.");
         }
+
+        
 
         // Endpoint para redefinir a senha
         [HttpPost("redefinir-senha")]
