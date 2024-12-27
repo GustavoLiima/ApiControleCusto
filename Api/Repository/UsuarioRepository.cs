@@ -2,6 +2,7 @@
 using Api.Intefaces;
 using Api.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.PortableExecutable;
 
 namespace Api.Repository
 {
@@ -69,6 +70,11 @@ namespace Api.Repository
             _Context.tabUsuario.Attach(usuario); // Anexa a entidade ao contexto
             _Context.tabUsuario.Remove(usuario); // Marca para remoção
             _Context.SaveChanges(); // Salva as mudanças no banco
+        }
+
+        public UsuarioModel? GetUsuarioId(int pId)
+        {
+            return _Context.tabUsuario.FirstOrDefault(x => x.cd_usuario == pId);
         }
     }
 }

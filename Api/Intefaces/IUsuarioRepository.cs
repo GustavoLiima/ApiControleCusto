@@ -9,5 +9,6 @@ namespace Api.Intefaces
         List<UsuarioModel> GetUsuarios();
         void RemoverUsuario(UsuarioDto pUsuario);
         public UsuarioModel? GetUsuarioEmail(string pEmail);
+        public UsuarioModel? GetUsuarioId(int pId);
     }
 }

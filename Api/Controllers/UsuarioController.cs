@@ -35,5 +35,27 @@ namespace Api.Controllers
         {
             return Ok(_usuarioRep.GetUsuarios());
         }
+
+        [HttpPut("AtualizarSenha")]
+        [Authorize]
+        public IActionResult AtualizarSenha([FromBody] string novaSenha)
+        {
+            try
+            {
+                var claims = User.Claims;
+                var id = int.Parse(claims.FirstOrDefault(c => c.Type == "usuarioID")?.Value);
+
+                var user = _usuarioRep.GetUsuarioId(id);
+
+                user.senha = novaSenha;
+
+                _usuarioRep.AdicionarAtualizarUsuario(user);
+                return Ok("Senha atualizada com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erro interno: {ex.Message}");
+            }
+        }
     }
 }
