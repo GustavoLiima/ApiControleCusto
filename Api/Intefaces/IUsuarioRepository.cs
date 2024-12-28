@@ -10,5 +10,6 @@ namespace Api.Intefaces
         void RemoverUsuario(UsuarioDto pUsuario);
         public UsuarioModel? GetUsuarioEmail(string pEmail);
         public UsuarioModel? GetUsuarioId(int pId);
+        public UsuarioModel? AtualizarUsuario(UsuarioModel pUsuario);
     }
 }

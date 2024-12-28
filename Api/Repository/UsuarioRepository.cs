@@ -19,9 +19,32 @@ namespace Api.Repository
 
         public UsuarioModel AdicionarAtualizarUsuario(UsuarioModel pUsuario)
         {
+            
             _Context.tabUsuario.Update(pUsuario);
             _Context.SaveChanges();
             return pUsuario;
+        }
+
+        public UsuarioModel? AtualizarUsuario(UsuarioModel pUsuario)
+        {
+            var usuarioExistente = _Context.tabUsuario.Find(pUsuario.cd_usuario);
+            if (usuarioExistente != null)
+            {
+                usuarioExistente.nome = pUsuario.nome;
+                usuarioExistente.sobrenome = pUsuario.sobrenome;
+                usuarioExistente.telefone = pUsuario.telefone;
+                usuarioExistente.email = pUsuario.email;
+                usuarioExistente.CategoriaCNH = pUsuario.CategoriaCNH;
+                usuarioExistente.NumeroCNH = pUsuario.NumeroCNH;
+                usuarioExistente.VencimentoCNH = pUsuario.VencimentoCNH;
+
+                _Context.SaveChanges();
+                return usuarioExistente;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<UsuarioModel> GetUsuarios()

@@ -19,7 +19,7 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Adicionar(UsuarioDto pUsuario)
         {
-            var retorno = _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true));
+            var retorno = _usuarioRep.AtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true));
             if(retorno != null)
             {
                 return Ok(retorno);
@@ -27,6 +27,21 @@ namespace Api.Controllers
             else
             {
                 return BadRequest("Falha ao incluir usuário");
+            }
+        }
+
+        [HttpPost("AtualizarUsuario")]
+        [Authorize]
+        public IActionResult Atualizar(UsuarioDto pUsuario)
+        {
+            var retorno = _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true));
+            if (retorno != null)
+            {
+                return Ok(retorno);
+            }
+            else
+            {
+                return BadRequest("Falha ao atualizar usuário");
             }
         }
 
