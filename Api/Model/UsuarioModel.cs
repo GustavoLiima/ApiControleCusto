@@ -37,9 +37,10 @@ namespace Api.Model
 
         [Required]
         public bool ativo { get; set; }  // Status ativo
+        public int Plano { get; set; }
         public UsuarioModel() { }
 
-        public UsuarioModel(int pcdUsuario, string pNome, string pSobrenome, string pSenha, string pTelefone, string pEmail, string pNumeroCNH, string pCategoriaCNH, DateTime? pVencimentoCNH, bool pAtivo) 
+        public UsuarioModel(int pcdUsuario, string pNome, string pSobrenome, string pSenha, string pTelefone, string pEmail, string pNumeroCNH, string pCategoriaCNH, DateTime? pVencimentoCNH, bool pAtivo, int pPlano) 
         {
             cd_usuario = pcdUsuario;
             nome = pNome;
@@ -51,6 +52,7 @@ namespace Api.Model
             NumeroCNH = pNumeroCNH;
             CategoriaCNH = pCategoriaCNH;
             VencimentoCNH = pVencimentoCNH;
+            Plano = pPlano;
         }
     }
 }
