@@ -8,8 +8,8 @@
         public string? telefone { get; set; }
         public string email { get; set; }
         public string senha { get; set; }
-        public string numeroCnh { get; set; }
-        public string categoriaCnh { get; set; }
+        public string? numeroCnh { get; set; }
+        public string? categoriaCnh { get; set; }
         public DateTime? vencimentoCnh { get; set; }
         public bool ativo { get; set; }
         public int Plano { get; set; }

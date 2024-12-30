@@ -20,7 +20,7 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Adicionar(UsuarioDto pUsuario)
         {
-            var retorno = _usuarioRep.AtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true, (int)EPlanos.Gratuito));
+            var retorno = _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true, (int)EPlanos.Gratuito));
             if(retorno != null)
             {
                 return Ok(retorno);
@@ -35,7 +35,7 @@ namespace Api.Controllers
         [Authorize]
         public IActionResult Atualizar(UsuarioDto pUsuario)
         {
-            var retorno = _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true, pUsuario.Plano));
+            var retorno = _usuarioRep.AtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true, pUsuario.Plano));
             if (retorno != null)
             {
                 return Ok(retorno);
