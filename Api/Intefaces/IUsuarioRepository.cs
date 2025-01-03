@@ -11,5 +11,6 @@ namespace Api.Intefaces
         public UsuarioModel? GetUsuarioEmail(string pEmail);
         public UsuarioModel? GetUsuarioId(int pId);
         public UsuarioModel? AtualizarUsuario(UsuarioModel pUsuario);
+        public bool ExisteEmailCadastrado(string email);
     }
 }

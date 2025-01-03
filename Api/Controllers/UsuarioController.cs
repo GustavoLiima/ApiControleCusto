@@ -20,14 +20,22 @@ namespace Api.Controllers
         [HttpPost]
         public IActionResult Adicionar(UsuarioDto pUsuario)
         {
-            var retorno = _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true, (int)EPlanos.Gratuito));
-            if(retorno != null)
+            var ExisteEmail = _usuarioRep.ExisteEmailCadastrado(pUsuario.email);
+            if (ExisteEmail)
             {
-                return Ok(retorno);
+                return BadRequest("Este email já está cadastrado.\nCaso tenha esquecido sua senha, na tela inicial clique em Esqueci minha senha");
             }
             else
             {
-                return BadRequest("Falha ao incluir usuário");
+                var retorno = _usuarioRep.AdicionarAtualizarUsuario(new UsuarioModel(pUsuario.cd_usuario, pUsuario.nome, pUsuario.sobrenome, pUsuario.senha, pUsuario.telefone, pUsuario.email, pUsuario.numeroCnh, pUsuario.categoriaCnh, pUsuario.vencimentoCnh, true, (int)EPlanos.Gratuito));
+                if (retorno != null)
+                {
+                    return Ok(retorno);
+                }
+                else
+                {
+                    return BadRequest("Falha ao incluir usuário");
+                }
             }
         }
 

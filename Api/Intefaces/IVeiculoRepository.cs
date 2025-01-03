@@ -8,6 +8,6 @@ namespace Api.Intefaces
         Task<VeiculoModel?> GetVeiculo(int id);
         Task<List<VeiculoModel>> GetVeiculosUsuario(int pIdUsuario);
         Task AtualizarVeiculo(VeiculoModel veiculo);
-        Task ExcluirVeiculo(int id);
+        Task<VeiculoModel> ExcluirVeiculo(VeiculoModel veiculo);
     }
 }

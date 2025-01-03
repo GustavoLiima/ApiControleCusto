@@ -43,16 +43,15 @@ namespace Api.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task ExcluirVeiculo(int id)
+        public async Task<VeiculoModel> ExcluirVeiculo(VeiculoModel id)
         {
-            var veiculo = await GetVeiculo(id);
-            if (veiculo == null)
-            {
-                throw new ArgumentException("Veículo não encontrado.");
-            }
+            var veiculo = await GetVeiculo(id.ID);
 
-            _context.tabVeiculos.Remove(veiculo);
-            await _context.SaveChangesAsync();
+            veiculo.Ativo = false; // Atualiza a propriedade Ativo para false
+            _context.tabVeiculos.Update(veiculo); // Marca o veículo como modificado
+            await _context.SaveChangesAsync(); // Salva as alterações no banco
+
+            return veiculo;
         }
 
         public async Task<List<VeiculoModel>> GetVeiculosUsuario(int pIdUsuario)

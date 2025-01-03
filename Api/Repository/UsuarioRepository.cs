@@ -16,6 +16,10 @@ namespace Api.Repository
             _Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        public bool ExisteEmailCadastrado(string email)
+        {
+            return _Context.tabUsuario.Any(u => u.email == email);
+        }
 
         public UsuarioModel AdicionarAtualizarUsuario(UsuarioModel pUsuario)
         {

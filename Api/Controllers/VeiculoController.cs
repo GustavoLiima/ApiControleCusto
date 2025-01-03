@@ -46,6 +46,20 @@ namespace Api.Controllers
             return Ok(veiculo);
         }
 
+        [HttpDelete("Desabilitar")]
+        public async Task<IActionResult> DesabilitarVeiculo(int id)
+        {
+            var veiculo = await _context.GetVeiculo(id);
+            if (veiculo == null)
+            {
+                return BadRequest("Veículo não encontrado.");
+            }
+
+            var retorno = await _context.ExcluirVeiculo(veiculo);
+
+            return Ok(retorno);
+        }
+
         // Atualizar veículo
         [HttpPut("atualizar")]
         public async Task<IActionResult> AtualizarVeiculo([FromBody] VeiculoModel veiculo)
@@ -63,7 +77,7 @@ namespace Api.Controllers
         [HttpDelete("excluir/{id}")]
         public async Task<IActionResult> ExcluirVeiculo(int id)
         {
-            await _context.ExcluirVeiculo(id);
+            //await _context.ExcluirVeiculo(id);
             return Ok("Veículo excluído com sucesso.");
         }
     }

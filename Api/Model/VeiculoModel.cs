@@ -41,5 +41,6 @@ namespace Api.Model
         public string? Renavam { get; set; }
 
         public string? Anotacoes { get; set; }
+        public bool Ativo { get; set; }
     }
 }
