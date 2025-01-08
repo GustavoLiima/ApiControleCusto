@@ -47,9 +47,9 @@ namespace Api.Controllers
         }
 
         [HttpDelete("Desabilitar")]
-        public async Task<IActionResult> DesabilitarVeiculo(int id)
+        public async Task<IActionResult> DesabilitarVeiculo(VeiculoModel id)
         {
-            var veiculo = await _context.GetVeiculo(id);
+            var veiculo = await _context.GetVeiculo(id.ID);
             if (veiculo == null)
             {
                 return BadRequest("Veículo não encontrado.");

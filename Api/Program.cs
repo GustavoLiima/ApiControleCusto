@@ -79,6 +79,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDefaultFiles(); // Serve arquivos como "index.html" por padrão
+app.UseStaticFiles();  // Permite servir arquivos estáticos da pasta wwwroot
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

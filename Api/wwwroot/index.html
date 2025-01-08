@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofauto</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-primary {
+            background-color: #5C2D91;
+        }
+        .text-primary {
+            color: #5C2D91;
+        }
+        .gradient-overlay {
+            background: linear-gradient(to right, #5C2D91, #7B4DB8);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="bg-primary text-white py-24 relative overflow-hidden">
+        <div class="gradient-overlay absolute inset-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 max-w-3xl">
+                Cofauto: Controle Financeiro Automotivo
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl">
+                Assuma o controle total das despesas e manutenção do seu veículo com nosso sistema de gestão inteligente
+            </p>
+        </div>
+    </header>
+
+    <!-- Fuel Control Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="fuel" class="w-10 h-10 text-primary"></i>
+                        <h2 class="text-3xl font-bold text-gray-800">Controle de Combustível</h2>
+                    </div>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Registre e acompanhe todos os abastecimentos do seu veículo para manter o controle total do consumo
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <p class="text-gray-700">Calculadora Flex - Descubra qual combustível é mais vantajoso com nossa calculadora intuitiva</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <p class="text-gray-700">Relatórios detalhados por combustível</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-primary"></div>
+                            <p class="text-gray-700">Cost-effectiveness calculations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <img src="https://i.imgur.com/HI5CGv4.png" 
+                         alt="Fuel Management" 
+                         class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Tracking Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="dollar-sign" class="w-10 h-10 text-primary"></i>
+                        <h2 class="text-3xl font-bold text-gray-800">Acompanhamento Financeiro</h2>
+                    </div>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Monitore todas as suas finanças relacionadas a veículos em um só lugar. Acompanhe os ganhos, 
+                        analisar despesas e manter controle financeiro completo
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <i data-lucide="calculator" class="w-8 h-8 text-primary mb-4"></i>
+                            <h3 class="text-lg font-semibold mb-2">Monitoramento de despesas</h3>
+                            <p class="text-gray-600">Rastreie e classifique todos os custos relacionados ao veículo</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <i data-lucide="history" class="w-8 h-8 text-primary mb-4"></i>
+                            <h3 class="text-lg font-semibold mb-2">Acompanhamento de renda</h3>
+                            <p class="text-gray-600">Monitore ganhos e fluxos de receita</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <img src="https://i.imgur.com/utIkcw1.png" 
+                         alt="Financial Tracking" 
+                         class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maintenance Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="settings" class="w-10 h-10 text-primary"></i>
+                        <h2 class="text-3xl font-bold text-gray-800">Gerenciamento de serviços</h2>
+                    </div>
+                    <p class="text-xl text-gray-600 mb-8">
+                        Mantenha seu veículo em perfeitas condições com nosso abrangente sistema de rastreamento de serviços.
+                        Nunca perca manutenções importantes com lembretes inteligentes
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <i data-lucide="file-text" class="w-8 h-8 text-primary mb-4"></i>
+                            <h3 class="text-lg font-semibold mb-2">Registros de serviço</h3>
+                            <p class="text-gray-600">Histórico completo de manutenção e reparos</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-xl">
+                            <i data-lucide="bell" class="w-8 h-8 text-primary mb-4"></i>
+                            <h3 class="text-lg font-semibold mb-2">Lembretes inteligentes</h3>
+                            <p class="text-gray-600">Alertas oportunos para serviços futuros</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1">
+                    <img src="https://i.imgur.com/RdCUTn4.png" 
+                         alt="Maintenance Management" 
+                         class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <i data-lucide="file-text" class="w-16 h-16 text-primary mx-auto mb-6"></i>
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Relatórios abrangentes</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                Gere relatórios detalhados para todos os dados do seu veículo. Obtenha insights sobre suas despesas, histórico de manutenção e desempenho financeiro
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Relatórios Financeiros</h3>
+                    <p class="text-gray-600">Análise detalhada de receitas e despesas</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Histórico de serviço</h3>
+                    <p class="text-gray-600">Registros completos de manutenção e reparo</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4">Métricas de desempenho</h3>
+                    <p class="text-gray-600">Eficiência de combustível e análise de custos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg">© 2025 Cofauto. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
