@@ -35,7 +35,7 @@ namespace Api.Controllers
             }
             else
             {
-                return BadRequest("Usuario/Senha inválido");
+                return BadRequest("Usuário ou senha inválidos");
             }
         }
     }
