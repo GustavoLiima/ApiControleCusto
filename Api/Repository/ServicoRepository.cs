@@ -1,6 +1,9 @@
 ﻿using Api.Dto;
 using Api.Intefaces;
 using Api.Model;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection.PortableExecutable;
 
 namespace Api.Repository
 {
@@ -13,24 +16,37 @@ namespace Api.Repository
             _Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public void AdicionarAtualizarServico(ServicoModel pServico)
+        public Task<IActionResult> DeleteServico(int id)
         {
-            _Context.tabServico.Add(pServico);
-            _Context.SaveChanges();
+            throw new NotImplementedException();
         }
 
-        public List<ServicoModel> GetServicos()
+        public Task<ActionResult<bool>> EnviarServicos(List<Servico> pListaIncluir)
         {
-            return _Context.tabServico.ToList();
+            throw new NotImplementedException();
         }
 
-        public void RemoverServico(ServicoDto pServico)
+        public ActionResult<List<Servico>> GetServico(int id)
         {
-            var servico = new ServicoModel { cd_servico = pServico.cdServico };
+            List<Servico> retorno = _Context.tabServico.Where(x => x.IdVeiculo == id).ToList();
+            return retorno;
+        }
 
-            _Context.tabServico.Attach(servico); // Anexa a entidade ao contexto
-            _Context.tabServico.Remove(servico); // Marca para remoção
-            _Context.SaveChanges(); // Salva as mudanças no banco
+        public Task<ActionResult<IEnumerable<Servico>>> GetServicos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ActionResult<Servico>> PostServico(Servico servico)
+        {
+            await _Context.AddAsync(servico);
+            await _Context.SaveChangesAsync();
+            return servico;
+        }
+
+        public bool ServicoExists(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

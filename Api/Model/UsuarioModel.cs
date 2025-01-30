@@ -38,9 +38,12 @@ namespace Api.Model
         [Required]
         public bool ativo { get; set; }  // Status ativo
         public int Plano { get; set; }
+
+        [StringLength(500)] // Tamanho máximo de 500 caracteres para o token
+        public string? TokenPagamento { get; set; }
         public UsuarioModel() { }
 
-        public UsuarioModel(int pcdUsuario, string pNome, string pSobrenome, string pSenha, string pTelefone, string pEmail, string pNumeroCNH, string pCategoriaCNH, DateTime? pVencimentoCNH, bool pAtivo, int pPlano) 
+        public UsuarioModel(int pcdUsuario, string pNome, string pSobrenome, string pSenha, string pTelefone, string pEmail, string pNumeroCNH, string pCategoriaCNH, DateTime? pVencimentoCNH, bool pAtivo, int pPlano, string? pTokenPagamento = null) 
         {
             cd_usuario = pcdUsuario;
             nome = pNome;
@@ -53,6 +56,7 @@ namespace Api.Model
             CategoriaCNH = pCategoriaCNH;
             VencimentoCNH = pVencimentoCNH;
             Plano = pPlano;
+            TokenPagamento = pTokenPagamento;
         }
     }
 }

@@ -2,7 +2,6 @@
 using Api.Intefaces;
 using Api.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.PortableExecutable;
 
 namespace Api.Repository
 {
@@ -41,6 +40,8 @@ namespace Api.Repository
                 usuarioExistente.CategoriaCNH = pUsuario.CategoriaCNH;
                 usuarioExistente.NumeroCNH = pUsuario.NumeroCNH;
                 usuarioExistente.VencimentoCNH = pUsuario.VencimentoCNH;
+                usuarioExistente.Plano = pUsuario.Plano;
+                usuarioExistente.TokenPagamento = pUsuario.TokenPagamento;
 
                 _Context.SaveChanges();
                 return usuarioExistente;
@@ -85,7 +86,9 @@ namespace Api.Repository
                     telefone = retorno.telefone,
                     numeroCnh = retorno.NumeroCNH,
                     categoriaCnh = retorno.CategoriaCNH,
-                    vencimentoCnh = retorno.VencimentoCNH
+                    vencimentoCnh = retorno.VencimentoCNH,
+                    Plano = retorno.Plano,
+                    TokenPagamento = retorno.TokenPagamento
                 };
             }
         }

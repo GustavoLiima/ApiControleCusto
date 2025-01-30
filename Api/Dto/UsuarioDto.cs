@@ -13,5 +13,6 @@
         public DateTime? vencimentoCnh { get; set; }
         public bool ativo { get; set; }
         public int Plano { get; set; }
+        public string TokenPagamento { get; set; }
     }
 }

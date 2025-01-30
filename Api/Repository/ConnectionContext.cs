@@ -8,7 +8,7 @@ namespace Api.Repository
     {
         private IConfiguration _configuration;
         public DbSet<UsuarioModel> tabUsuario { get; set; }
-        public DbSet<ServicoModel> tabServico { get; set; }
+        public DbSet<Servico> tabServico { get; set; }
         public DbSet<RecuperacaoSenhaModel> tabRecuperacaoSenha { get; set; }
         public DbSet<VeiculoModel> tabVeiculos { get; set; }
         public DbSet<UsuarioVeiculo> tabUsuarioVeiculos { get; set; }
